@@ -45,8 +45,11 @@ async function run () {
   if (result.includes('SOLD OUT')) {
     console.log(`마스크가 품절입니다. [ ${++count}번째 시도중 ]`)
     setTimeout(run, 5000)
-  } else {
+  } else if (result.includes('황사마스크 중형')) {
     sendMessage('웰킵스 마스크를 구입할 수 있습니다.')
+  } else {
+    console.log(`페이지가 비정상입니다. [ ${++count}번째 시도중 ]`)
+    setTimeout(run, 5000)
   }
 }
 run()
